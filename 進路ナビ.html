@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>進路ナビAI</title>
+</head>
+<body>
+    <h1>進路ナビAI</h1>
+    <p>希望する分野を入力してください:</p>
+    <input type="text" id="fieldInput" placeholder="例: IT, 医療, 芸術,教育,スポーツトレーナー">
+    <button onclick="recommendCareer()">進路を提案</button>
+
+    <h2>おすすめ進路:</h2>
+    <p id="result"></p>
+
+    <script>
+        // 簡単な進路データベース
+        const careers = {
+            IT: ["プログラマー", "システムエンジニア", "AIエンジニア"],
+            医療: ["看護師", "医療事務", "理学療法士"],
+            芸術: ["デザイナー", "イラストレーター", "音楽家"],
+　　　　　教育:["教員","保育士","塾講師"],
+        スポーツトレーナー:["アスレティックトレーナー","メディカルトレーナー","フィットネストレーナー"]
+ 
+        };
+
+        // 推薦関数
+        function recommendCareer() {
+            const input = document.getElementById("fieldInput").value.trim();
+            const resultElem = document.getElementById("result");
+
+            if(careers[input]) {
+                resultElem.textContent = careers[input].join(" / ");
+            } else {
+                resultElem.textContent = "申し訳ありません。登録されていない分野です。";
+            }
+        }
+    </script>
+</body>
+</html>
